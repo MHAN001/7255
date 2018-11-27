@@ -1,0 +1,22 @@
+D:\WebTools\Assignment_Repo\adventuregame\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.deps.json
+D:\WebTools\Assignment_Repo\adventuregame\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.runtimeconfig.json
+D:\WebTools\Assignment_Repo\adventuregame\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.runtimeconfig.dev.json
+D:\WebTools\Assignment_Repo\adventuregame\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.dll
+D:\WebTools\Assignment_Repo\adventuregame\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.pdb
+D:\WebTools\Assignment_Repo\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.csproj.CoreCompileInputs.cache
+D:\WebTools\Assignment_Repo\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.AssemblyInfoInputs.cache
+D:\WebTools\Assignment_Repo\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.AssemblyInfo.cs
+D:\WebTools\Assignment_Repo\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.dll
+D:\WebTools\Assignment_Repo\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.pdb
+D:\WebTools\Assignment_Repo\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.csprojAssemblyReference.cache
+C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.csproj.CoreCompileInputs.cache
+C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.AssemblyInfoInputs.cache
+C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.AssemblyInfo.cs
+C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.deps.json
+C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.runtimeconfig.json
+C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.runtimeconfig.dev.json
+C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.dll
+C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.pdb
+C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.dll
+C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.pdb
+C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.csprojAssemblyReference.cache

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="AdventureAPI20180719102547" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\WebTools\\Assignment_Repo\\adventuregame\\AdventureAPI\\AdventureAPI\\obj\\Release\\netcoreapp2\.0\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

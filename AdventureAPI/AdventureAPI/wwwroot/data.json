@@ -1,0 +1,378 @@
+[
+  {
+    "currentID": 0,
+    "step": {
+      "question": "Game Name: Stormy Panic. Author: ???. There are 3 main roles in the game: Mr.Magic, Nurse and Ms.Lucky. Everyone of them has their own power. Your main goal is to escape from a cunning butcher. Now take your role and enjoy your time.",
+      "option": {
+        "Mr.Magic": 1,
+        "Nurse": 2,
+        "Ms.Lucky": 3
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 1,
+    "step": {
+      "question": "Welcome, Magic. A butcher is now coming to hunt you. Now you are on your own. You need to find a way out of this area. Otherwise you die. You are in a obsoleting church, do you wanna stay or leave? Butcher is 1 mile from you.",
+      "option": {
+        "stay here": 4,
+        "look around": 6,
+        "get ou of here": 10
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 2,
+    "step": {
+      "question": "Welcome, Lady. A butcher is now coming to hunt you. Now you are on your own. You need to find a way out of this area. Otherwise you die. You are in a obsoleting church, do you wanna stay or leave? Butcher is 1 mile from you.",
+      "option": {
+        "stay here": 4,
+        "look around": 6,
+        "get ou of here": 2001
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 2001,
+    "step": {
+      "question": "Now you are out of church. On your left side is a forest which is terribly dark. Your right side is graveyard. There is a cliff in front of you. How you gonna do?",
+      "option": {
+        "go to cliff and jump": 2005,
+        "go to forest": 2003,
+        "go to graveyard": 93
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 2003,
+    "step": {
+      "question": "You saw feeble light on your left side. Right side is totally dark. Which way you gonna choose?",
+      "option": {
+        "left": 1004,
+        "right": 1003
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 2004,
+    "step": {
+      "question": "Butcher is extremely close to you. run or fight? ",
+      "option": {
+        "do nothing": 100,
+        "run": 10
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 2005,
+    "step": {
+      "question": "Whoosh....oops! Fortunately, it is not too high. But you still got hurt due to the jump. Now you are in the bottom of the mountain. Looks like you are far from the butcher right now. A river is few feets away. You could use your power to heal your self or you could just walk around.",
+      "option": {
+        "walk around": 2006,
+        "heal": 2007
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 2006,
+    "step": {
+      "question": "You die due to the injury",
+      "option": {
+        "Replay": 0
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 2007,
+    "step": {
+      "question": "You bind up your wound. At least it is not that pain right now. Do you wanna go to the river?",
+      "option": {
+        "do nothing": 2006,
+        "go to the river": 2008
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 2008,
+    "step": {
+      "question": "Yeah, why not go to the river since this is the only way that you can stay alive. Wow there are two boats on the river. One is a brand new one and the other seems shabby. But the new one is beside a vortex. Which one do you wanna choose?",
+      "option": {
+        "Brand new One": 2009,
+        "Old one": 2010
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 2009,
+    "step": {
+      "question": "You saw a young man on the boat.He call himself Monkey D. Luffy and he invited you to join their group to find  the world's ultimate treasure--One piece. Do you wanna join?",
+      "option": {
+        "Of course!": 2011,
+        "Rfuse him": 2012
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 2010,
+    "step": {
+      "question": "You jumped on the old boat and you sinked with it. Game Over",
+      "option": {
+        "Replay": 1
+      },
+      "score":1
+    }
+  },
+  {
+    "currentID": 2011,
+    "step": {
+      "question": "Congratulations! You are now a member of Straw Hat Pirates! New story will comming soon in the Stormy Panic-One piece version. Game Over",
+      "option": {
+        "Try other stories": 0
+      },
+      "score":100
+    }
+  },
+  {
+    "currentID": 2012,
+    "step": {
+      "question": "You annoyed him. You are killed by him. Game Over",
+      "option": {
+        "Replay": 0
+      },
+      "score":3
+    }
+  },
+  {
+    "currentID": 3,
+    "step": {
+      "question": "Welcome, Lady. A butcher is now coming to hunt you. Now you are on your own. You need to find a way out of this area. Otherwise you die. You are in a obsoleting church, do you wanna stay or leave? Butcher is 1 mile from you.",
+      "option": {
+        "Doing nothing": 3001,
+        "Pray for alive": 3001
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 4,
+    "step": {
+      "question": "Butcher is a quater mile away. Do you still wanna stay here?",
+      "option": {
+        "keep staying": 5,
+        "look around": 6,
+        "get ou of here": 10
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 5,
+    "step": {
+      "question": "Butcher is a 100 feet away. Do you still wanna stay here?",
+      "option": {
+        "stay": 100,
+        "run away": 10
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 6,
+    "step": {
+      "question": "Gnarled trees hung low over the baronial church, creaking ominously in the howling winds. The heavy oak doors broke open, echoing around the empty church. The moonlight shone through the heavily cracked stained-glass windows, some words imbedded in the wall.",
+      "option": {
+        "check the word": 7,
+        "do nothing": 100,
+        "get ou of here": 10,
+        "power": 90
+      },
+      "score":20
+    }
+  },
+  {
+    "currentID": 7,
+    "step": {
+      "question": "It says:'The heathen are sunk down in the pit that they made: in the net which theyhid is their own foot taken. The Lord is known by the judgment which heexecuteth: the wicked is snared in the work of his own hands. The wickedshall be turned into hell'",
+      "option": {
+        "do nothing": 8,
+        "get ou of here": 10,
+        "power": 90
+      },
+      "score":40
+    }
+  },
+  {
+    "currentID": 10,
+    "step": {
+      "question": "Now you are out of church. On your left side is a forest which is terribly dark. Your right side is graveyard. There is a cliff in front of you. How you gonna do?",
+      "option": {
+        "jump from the cliff": 101,
+        "go to forest": 92,
+        "go to graveyard": 93
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 90,
+    "step": {
+      "question": "Now you are invisible. Butcher is extremely close to you. run or fight? ",
+      "option": {
+        "do nothing": 100,
+        "run": 91,
+        "hit him": 97
+      },
+      "score":10
+    }
+  },
+
+  {
+    "currentID": 91,
+    "step": {
+      "question": "Now you are out of church. On your left side is a forest which is terribly dark. Your right side is graveyard. There is a cliff in front of you. How you gonna do?",
+      "option": {
+        "Jump from cliff": 101,
+        "go to forest": 92,
+        "go to graveyard": 93
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 92,
+    "step": {
+      "question": "Now you are visible. Butcher detected you again. You saw feeble light on your left side. Right side is totally dark. Which way you gonna choose?",
+      "option": {
+        "left": 94,
+        "right": 1003
+      },
+      "score":10
+    }
+  },
+  {
+    "currentID": 93,
+    "step": {
+      "question": "There is no shield in the graveyard. Butcher is staring at you.",
+      "option": {
+        "do nothing": 100,
+        "run away": 100
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 94,
+    "step": {
+      "question": "Now you are visible. Butcher detected you again. You saw feeble light on your left side. Right side is totally dark. Which way you gonna choose?",
+      "option": {
+        "left": 94,
+        "right": 1003
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 97,
+    "step": {
+      "question": "You punched him heavily. He is curently dizzy now. You become visible. What do you wanna do next?",
+      "option": {
+        "keep hitting": 100,
+        "Run away": 1001
+      },
+      "score":50
+    }
+  },
+  {
+    "currentID": 100,
+    "step": {
+      "question": "Hunter ate you. Game Over",
+      "option": {
+        "Replay": 0
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 101,
+    "step": {
+      "question": "You dead by fall. Game Over",
+      "option": {
+        "Replay": 0
+      },
+      "score":5
+    }
+  },
+  {
+    "currentID": 1000,
+    "step": {
+      "question": "Game Over",
+      "option": {},
+      "score":0
+    }
+  },
+  {
+    "currentID": 1001,
+    "step": {
+      "question": "You escaped from butcher really fast. He is still staying there. What you gonna do?",
+      "option": {
+        "Go back and fight like a man": 100,
+        "Look for a way out": 1002
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 1001,
+    "step": {
+      "question": "On your left side is a forest which is terribly dark. Your right side is graveyard. There is a cliff in front of you. How you gonna do?",
+      "option": {
+        "Still wanna fight him": 100,
+        "Go to forest": 1002,
+        "Go to Graveyard": 93
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 1003,
+    "step": {
+      "question": "Congratulations. You are out of the area. Do you wanna replay? Notice that you won't be able to start the game agian unless you restart the project if you click No",
+      "option": {
+        "Yes": 0,
+        "No thanks": 1000
+      },
+      "score":100
+    }
+  },
+  {
+    "currentID": 1004,
+    "step": {
+      "question": "You are too close to butcher. You die. Game Over",
+      "option": {
+        "Replay": 0
+      },
+      "score":0
+    }
+  },
+  {
+    "currentID": 3001,
+    "step": {
+      "question": "Congratulations! Butcher was died due to some unknown reason. You win! Do you wanna replay and try some other roles?",
+      "option": {
+        "Yes": 0
+      },
+      "score":100
+    }
+  }
+]
