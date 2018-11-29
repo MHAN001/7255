@@ -20,3 +20,14 @@ C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\bin\Debug\netcor
 C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.dll
 C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.pdb
 C:\Users\xu han\WebApps\adventuregame\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.csprojAssemblyReference.cache
+D:\7255\7255\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.deps.json
+D:\7255\7255\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.runtimeconfig.json
+D:\7255\7255\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.runtimeconfig.dev.json
+D:\7255\7255\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.dll
+D:\7255\7255\AdventureAPI\AdventureAPI\bin\Debug\netcoreapp2.0\AdventureAPI.pdb
+D:\7255\7255\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.csprojAssemblyReference.cache
+D:\7255\7255\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.csproj.CoreCompileInputs.cache
+D:\7255\7255\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.AssemblyInfoInputs.cache
+D:\7255\7255\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.AssemblyInfo.cs
+D:\7255\7255\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.dll
+D:\7255\7255\AdventureAPI\AdventureAPI\obj\Debug\netcoreapp2.0\AdventureAPI.pdb

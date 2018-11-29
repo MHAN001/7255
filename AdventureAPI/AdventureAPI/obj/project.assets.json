@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "Elasticsearch.Net/6.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Elasticsearch.Net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Elasticsearch.Net.dll": {}
+        }
+      },
       "JWT/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -4751,6 +4760,20 @@
     }
   },
   "libraries": {
+    "Elasticsearch.Net/6.4.0": {
+      "sha512": "vOnMRC2C2iCfMyMivNhzbRndE4TVmfiXrqNwx87VMlHcOFkjScOpVB3ZufLD96cfs1XooIbY68j7Htf+joFDUA==",
+      "type": "package",
+      "path": "elasticsearch.net/6.4.0",
+      "files": [
+        ".signature.p7s",
+        "elasticsearch.net.6.4.0.nupkg.sha512",
+        "elasticsearch.net.nuspec",
+        "lib/net461/Elasticsearch.Net.dll",
+        "lib/net461/Elasticsearch.Net.xml",
+        "lib/netstandard2.0/Elasticsearch.Net.dll",
+        "lib/netstandard2.0/Elasticsearch.Net.xml"
+      ]
+    },
     "JWT/4.0.0": {
       "sha512": "cXKReUVgwg1LlIdeUOSEyNouPahkHVrzL7oxjmzYt1O+z7+1xbO1otBUrSEGk3/qsVvO9pCfc5Dxmm25T/4OSQ==",
       "type": "package",
@@ -4835,7 +4858,7 @@
       ]
     },
     "Microsoft.AspNet.Cors/5.2.6": {
-      "sha512": "+UR2ucML7OSzE1xB8/NKxwq85dikwxhmjN0tuMrRxySCeiRICrcnRjagQYWeq6GAM2m5pTWNV1gn+E9ig9hwNg==",
+      "sha512": "9aZAbHBY8StAwehBYWPs6ewrc4hdyaj6O0cxgPme5vU9eYNz9kAfbX5z6I1LFsnpWzthpsikcJTE1OyAl/JzuQ==",
       "type": "package",
       "path": "microsoft.aspnet.cors/5.2.6",
       "files": [
@@ -4862,7 +4885,7 @@
       ]
     },
     "Microsoft.AspNet.WebApi.Core/5.2.6": {
-      "sha512": "8UiHr2VkrpwDCwXaXea8pNaR2zvJ3HYwsmWmkTFY1lEB2u4eFnL+aM+/GJK91Ud3KQ7Xse+Vysvj/UalM3IlmA==",
+      "sha512": "QMFixs/MvKZXjfUbV0gXxF85LKi+keu/zJKv13upg/JlcxJ+wdLSYzyHO/sgPPUuFVstgndK6Zt3VduWeqFmHQ==",
       "type": "package",
       "path": "microsoft.aspnet.webapi.core/5.2.6",
       "files": [
@@ -4875,7 +4898,7 @@
       ]
     },
     "Microsoft.AspNet.WebApi.Cors/5.2.6": {
-      "sha512": "Dn0hWJwZL8oND32CdD8Bi7Xb4cm9Jr9F4TaruGRPiV1DhP12gijYHy5syAqMIRn7jwiE5wOpIH/yA/vhPV09gQ==",
+      "sha512": "ZQU40+mCROg6cRE3tydEIuZBC7fh8ZueJmiz3HpaRoTriZVond1rLCcDu/PJM7FQJa0k8ut7iRUTgB1kU5yWFw==",
       "type": "package",
       "path": "microsoft.aspnet.webapi.cors/5.2.6",
       "files": [
@@ -6797,7 +6820,7 @@
       ]
     },
     "Microsoft.Extensions.PlatformAbstractions/1.1.0": {
-      "sha512": "UMlN++q5qqzQ2HH+uOrKxN5fmBXMQDhrYkSaPJxhmyzfJaFPirrVr1raim/Ocq1psAZoB9+7JSAf0GDAX35wUg==",
+      "sha512": "H6ZsQzxYw/6k2DfEQRXdC+vQ6obd6Uba3uGJrnJ2vG4PRXjQZ7seB13JdCfE72abp8E6Fk3gGgDzfJiLZi5ZpQ==",
       "type": "package",
       "path": "microsoft.extensions.platformabstractions/1.1.0",
       "files": [
@@ -11505,7 +11528,7 @@
       ]
     },
     "System.Security.Cryptography.Xml/4.4.2": {
-      "sha512": "1m+fKVrApgKYMRuE0MF0vGjqy4XqAp1rCtyAzMXhJajMDDytMh/rHk9hp4M7KKk3QQZoWJUvyUY7xcw74w+JiQ==",
+      "sha512": "q9Dren/YP5jhRCkDvLfuaPpMTQzP97ANvzq/OoGgwK8YdLRSTABS9oW5/23OKoM2DRCuBrh4qaecD2YNhPtuzQ==",
       "type": "package",
       "path": "system.security.cryptography.xml/4.4.2",
       "files": [
@@ -12685,6 +12708,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "Elasticsearch.Net >= 6.4.0",
       "JWT >= 4.0.0",
       "Microsoft.AspNet.WebApi.Cors >= 5.2.6",
       "Microsoft.AspNetCore.All >= 2.0.8",
@@ -12693,23 +12717,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\xu han\\.nuget\\packages\\": {},
+    "C:\\Users\\79813\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\xu han\\WebApps\\adventuregame\\AdventureAPI\\AdventureAPI\\AdventureAPI.csproj",
+      "projectUniqueName": "D:\\7255\\7255\\AdventureAPI\\AdventureAPI\\AdventureAPI.csproj",
       "projectName": "AdventureAPI",
-      "projectPath": "C:\\Users\\xu han\\WebApps\\adventuregame\\AdventureAPI\\AdventureAPI\\AdventureAPI.csproj",
-      "packagesPath": "C:\\Users\\xu han\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\xu han\\WebApps\\adventuregame\\AdventureAPI\\AdventureAPI\\obj\\",
+      "projectPath": "D:\\7255\\7255\\AdventureAPI\\AdventureAPI\\AdventureAPI.csproj",
+      "packagesPath": "C:\\Users\\79813\\.nuget\\packages\\",
+      "outputPath": "D:\\7255\\7255\\AdventureAPI\\AdventureAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\xu han\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\79813\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12733,6 +12757,10 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Elasticsearch.Net": {
+            "target": "Package",
+            "version": "[6.4.0, )"
+          },
           "JWT": {
             "target": "Package",
             "version": "[4.0.0, )"

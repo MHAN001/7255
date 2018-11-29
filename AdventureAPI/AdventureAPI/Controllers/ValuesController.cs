@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
-using AdventureGame.Models;
+using Elasticsearch.Net;
 using JWT;
 using JWT.Algorithms;
 using JWT.Serializers;
@@ -25,8 +25,6 @@ namespace AdventureAPI.Controllers
         public int nextId;
         private string schemaId;
         private string entryId;
-        public StoryManager sm = new StoryManager();
-        public List<Story> st;
         private IMemoryCache cache;
         Hashtable res ;
         public ValuesController(IMemoryCache cache)
@@ -133,6 +131,7 @@ namespace AdventureAPI.Controllers
             {
                 return new StatusCodeResult(401);
             }
+
             const BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic;
             var entries = this.cache.GetType().GetField("_entries", flags).GetValue(this.cache);
             var cacheItems = entries as IDictionary;
@@ -261,6 +260,20 @@ namespace AdventureAPI.Controllers
             return new JsonResult(res);
         }
 
+        [HttpGet]
+        [Route("elastic")]
+        public ActionResult elastic()
+        {
+            var settings = new ConnectionConfiguration(new Uri("http://localhost:9200"))
+                .RequestTimeout(TimeSpan.FromMinutes(2));
+            var client = new ElasticLowLevelClient(settings);
+
+            var person = new { Firstname = "123", LastName = "hehe" };
+            var iresponse = client.IndexAsync<BytesResponse>("person", "person", "1", PostData.Serializable(person));
+
+            //byte[] resStream = iresponse.Body;
+            return new StatusCodeResult(200);
+        }
 
         [HttpPut]
         [Route("{entryType}/{entryId}")]
@@ -321,7 +334,7 @@ namespace AdventureAPI.Controllers
             try
             {
                 IJsonSerializer serializer = new JsonNetSerializer();
-                IDateTimeProvider provider = new UtcDateTimeProvider();
+                JWT.IDateTimeProvider provider = new UtcDateTimeProvider();
                 IJwtValidator validator = new JwtValidator(serializer, provider);
                 IBase64UrlEncoder urlEncoder = new JwtBase64UrlEncoder();
                 IJwtDecoder decoder = new JwtDecoder(serializer, validator, urlEncoder);
@@ -343,6 +356,8 @@ namespace AdventureAPI.Controllers
             }
 
         }
+
+
     }
 
     public class User
