@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Text;
 using Elasticsearch.Net;
 using JWT;
 using JWT.Algorithms;
@@ -136,7 +138,7 @@ namespace AdventureAPI.Controllers
             var entries = this.cache.GetType().GetField("_entries", flags).GetValue(this.cache);
             var cacheItems = entries as IDictionary;
 
-            var settings = new ConnectionConfiguration(new Uri("http://example.com:9200"))
+            var settings = new ConnectionConfiguration(new Uri("http://localhost:9200"))
                             .RequestTimeout(TimeSpan.FromMinutes(2));
             var client = new ElasticLowLevelClient(settings);
 
@@ -173,8 +175,12 @@ namespace AdventureAPI.Controllers
                         {
                             rng.GetBytes(bytes);
                         }
-                        entryId = BitConverter.ToString(bytes);
-                        client.IndexAsync<StringResponse>("_plan", "plan", entryId, PostData.Serializable(json));
+                        entryId = BitConverter.ToString(bytes).ToLower();
+                        //var jj = json;
+                        //var iresponse = client.IndexAsync<BytesResponse>("person", "person", "2", PostData.Serializable(info));
+                        var simpleClient = new HttpClient();
+                        simpleClient.PostAsync("http://localhost:9200/ppap/plan/001", new StringContent(info, Encoding.UTF8, "application/json"));
+                        //var response = client.IndexAsync<BytesResponse>(entryId + "_plan", "plan", entryId, PostData.Serializable(json));
                         cache.Set(entryId, json);
                         Response.Headers.Add("ETag", responseEtag);
                         return new JsonResult(entryId);
@@ -274,7 +280,7 @@ namespace AdventureAPI.Controllers
             var client = new ElasticLowLevelClient(settings);
 
             var person = new { Firstname = "123", LastName = "hehe" };
-            var iresponse = client.IndexAsync<BytesResponse>("person", "person", "1", PostData.Serializable(person));
+            var iresponse = client.IndexAsync<BytesResponse>("person", "person", "33", PostData.Serializable(person));
 
             //byte[] resStream = iresponse.Body;
             return new StatusCodeResult(200);
