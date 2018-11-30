@@ -136,6 +136,10 @@ namespace AdventureAPI.Controllers
             var entries = this.cache.GetType().GetField("_entries", flags).GetValue(this.cache);
             var cacheItems = entries as IDictionary;
 
+            var settings = new ConnectionConfiguration(new Uri("http://example.com:9200"))
+                            .RequestTimeout(TimeSpan.FromMinutes(2));
+            var client = new ElasticLowLevelClient(settings);
+
             if (cacheItems == null) return new NotFoundObjectResult("There is no schema in the database!");
             foreach (DictionaryEntry item in cacheItems)
             {
@@ -170,6 +174,7 @@ namespace AdventureAPI.Controllers
                             rng.GetBytes(bytes);
                         }
                         entryId = BitConverter.ToString(bytes);
+                        client.IndexAsync<StringResponse>("_plan", "plan", entryId, PostData.Serializable(json));
                         cache.Set(entryId, json);
                         Response.Headers.Add("ETag", responseEtag);
                         return new JsonResult(entryId);
@@ -288,6 +293,9 @@ namespace AdventureAPI.Controllers
                     return new StatusCodeResult(401);
                 }
             }
+            var settings = new ConnectionConfiguration(new Uri("http://example.com:9200"))
+    .RequestTimeout(TimeSpan.FromMinutes(2));
+            var client = new ElasticLowLevelClient(settings);
             string usertmp;
             using (StreamReader sr = new StreamReader(Request.Body))
             {
@@ -296,7 +304,10 @@ namespace AdventureAPI.Controllers
             JSchema schema = JSchema.Parse(usertmp);
             if (cache.Get(entryId) != null)
             {
+                
+                //TODO
                 cache.Set(entryId, schema);
+
                 return new OkObjectResult("Update Successfully");
             }
             return new NotFoundObjectResult("Cannot find entry");
