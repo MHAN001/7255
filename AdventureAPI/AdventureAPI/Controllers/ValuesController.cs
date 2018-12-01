@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
+using AdventureAPI.Models;
 using Elasticsearch.Net;
 using JWT;
 using JWT.Algorithms;
@@ -176,11 +179,8 @@ namespace AdventureAPI.Controllers
                             rng.GetBytes(bytes);
                         }
                         entryId = BitConverter.ToString(bytes).ToLower();
-                        //var jj = json;
-                        //var iresponse = client.IndexAsync<BytesResponse>("person", "person", "2", PostData.Serializable(info));
                         var simpleClient = new HttpClient();
-                        simpleClient.PostAsync("http://localhost:9200/ppap/plan/001", new StringContent(info, Encoding.UTF8, "application/json"));
-                        //var response = client.IndexAsync<BytesResponse>(entryId + "_plan", "plan", entryId, PostData.Serializable(json));
+                        simpleClient.PostAsync("http://localhost:9200/"+entryId+"/plan/"+entryId, new StringContent(info, Encoding.UTF8, "application/json"));
                         cache.Set(entryId, json);
                         Response.Headers.Add("ETag", responseEtag);
                         return new JsonResult(entryId);
@@ -223,7 +223,6 @@ namespace AdventureAPI.Controllers
             const BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic;
             var entries = this.cache.GetType().GetField("_entries", flags).GetValue(this.cache);
             var cacheItems = entries as IDictionary;
-
             if (cacheItems == null) return null;
             foreach (DictionaryEntry item in cacheItems)
             {
@@ -239,7 +238,17 @@ namespace AdventureAPI.Controllers
             {
                 return new StatusCodeResult(404);
             }
-            return new JsonResult(res[entryid]);
+            var simpleClient = new HttpClient();
+            var response = simpleClient.GetAsync("http://localhost:9200/" + entryid + "/plan/" + entryid).Result;
+            string responseTxt = "";
+            using (HttpContent content = response.Content)
+            {
+                Task<string> result = content.ReadAsStringAsync();
+                responseTxt = result.Result;
+            }
+            var obj = ElasticParser.FromJson(responseTxt);
+                //res[entryid]
+                return new JsonResult(obj.Source);
         }
 
         [HttpGet]
@@ -299,30 +308,44 @@ namespace AdventureAPI.Controllers
                     return new StatusCodeResult(401);
                 }
             }
-            var settings = new ConnectionConfiguration(new Uri("http://example.com:9200"))
-    .RequestTimeout(TimeSpan.FromMinutes(2));
-            var client = new ElasticLowLevelClient(settings);
             string usertmp;
             using (StreamReader sr = new StreamReader(Request.Body))
             {
                 usertmp = sr.ReadToEnd();
             }
-            JSchema schema = JSchema.Parse(usertmp);
+            //JSchema schema = JSchema.Parse(usertmp);
+            var jsonTxt = JsonConvert.DeserializeObject<JsonParser>(usertmp);
             if (cache.Get(entryId) != null)
             {
                 
                 //TODO
-                cache.Set(entryId, schema);
-
+                cache.Set(entryId, jsonTxt);//schema
+                var client = new HttpClient();
+                var requestContent = new StringContent(usertmp, Encoding.UTF8, "application/json");
+                client.PutAsync("http://localhost:9200/"+entryId+"/"+ jsonTxt.ObjectType +"/"+ entryId, requestContent);
                 return new OkObjectResult("Update Successfully");
             }
             return new NotFoundObjectResult("Cannot find entry");
         }
 
+        [HttpPut]
+        [Route("{idx?}")]
+        private ActionResult partialDelete(string idx)
+        {
+            var client = new HttpClient();
+            //dynamic body = new ExpandoObject();
+            //body.script.source = "ctx._source.remove('multiple')";
+            //body.script.lang = 
+            string body = "[{ 'script':{ 'source': 'ctx._source.remove('planCostShares')','lang': 'painless'},'query':{ 'term':{ 'planCostShares.objectId':'1234vxc2324sdf'}}]";
+            var content = new StringContent(body, Encoding.UTF8, "application/json");
+            client.PostAsync("http://localhost:9200/"+idx+ "_update_by_query?conflicts=proceed", content);
+            return new OkObjectResult(200);
+        }
+
 
         [HttpDelete]
-        [Route("{entrytype}/{id}")]
-        public ActionResult deleteEntry(string entrytype, string id)
+        [Route("{id}/{entrytype}")]
+        public ActionResult deleteEntry(string id, string entrytype)
         {
             string token = Request.Headers["Authorization"];
             if (!validateUser(token))
@@ -337,10 +360,11 @@ namespace AdventureAPI.Controllers
             {
                 return new StatusCodeResult(401);
             }
+            var client = new HttpClient();
+            client.DeleteAsync("http://localhost:9200/"+id+"/plan/"+id);
             this.cache.Remove(id);
             return new OkObjectResult("Delete successfully!");
         }
-
 
         private Boolean validateUser(string token)
         {
