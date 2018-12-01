@@ -59,34 +59,40 @@ namespace AdventureAPI.Models
 
     public partial class LinkedPlanService
     {
-        [JsonProperty("linkedService")]
+        [JsonIgnore]
         public LinkedService LinkedService { get; set; }
 
-        [JsonProperty("planserviceCostShares")]
+        [JsonIgnore]
         public JsonParser PlanserviceCostShares { get; set; }
 
-        [JsonProperty("_org")]
+        [JsonIgnore]
         public string Org { get; set; }
 
-        [JsonProperty("objectId")]
+        //[JsonProperty("objectId")]
+        [JsonIgnore]
         public string ObjectId { get; set; }
 
-        [JsonProperty("objectType")]
+        //[JsonProperty("objectType")]
+        [JsonIgnore]
         public string ObjectType { get; set; }
     }
 
     public partial class LinkedService
     {
-        [JsonProperty("_org")]
+        //[JsonProperty("_org")]
+        [JsonIgnore]
         public string Org { get; set; }
 
-        [JsonProperty("objectId")]
+        //[JsonProperty("objectId")]
+        [JsonIgnore]
         public string ObjectId { get; set; }
 
-        [JsonProperty("objectType")]
+        //[JsonProperty("objectType")]
+        [JsonIgnore]
         public string ObjectType { get; set; }
 
-        [JsonProperty("name")]
+        //[JsonProperty("name")]
+        [JsonIgnore]
         public string Name { get; set; }
     }
 

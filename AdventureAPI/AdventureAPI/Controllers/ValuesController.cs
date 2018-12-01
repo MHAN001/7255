@@ -27,6 +27,7 @@ namespace AdventureAPI.Controllers
     public class ValuesController : Controller
     {
         const string secret = "GQDstcKsx0NHjPOuXOYg5MbeJ1XT0uFiwDVvVBrk";
+        const string etager = "33a64df551425fcc55e4d42a148795d9f25f89d4";
         public int nextId;
         private string schemaId;
         private string entryId;
@@ -163,7 +164,6 @@ namespace AdventureAPI.Controllers
 
             }
             JObject json = JObject.Parse(info);
-            string responseEtag = "this is Etag";
             foreach (dynamic js in res.Values)
             {
 
@@ -180,9 +180,9 @@ namespace AdventureAPI.Controllers
                         }
                         entryId = BitConverter.ToString(bytes).ToLower();
                         var simpleClient = new HttpClient();
-                        simpleClient.PostAsync("http://localhost:9200/"+entryId+"/plan/"+entryId, new StringContent(info, Encoding.UTF8, "application/json"));
+                        var response = simpleClient.PostAsync("http://localhost:9200/"+entryId+"/plan/"+entryId, new StringContent(info, Encoding.UTF8, "application/json"));
                         cache.Set(entryId, json);
-                        Response.Headers.Add("ETag", responseEtag);
+                        Response.Headers.Add("ETag", etager);
                         return new JsonResult(entryId);
                     }
                 }
@@ -193,7 +193,29 @@ namespace AdventureAPI.Controllers
             }
             return new NotFoundObjectResult("No such schema currently available!");
         }
-        
+
+        [HttpPost]
+        [Route("field")]
+        public ActionResult partialDelete(string idx)
+        {
+            var client = new HttpClient();
+            //dynamic body = new ExpandoObject();
+            //body.script.source = "ctx._source.remove('multiple')";
+            //body.script.lang = 
+            string et = Request.Headers["If-Match"];
+            if (et != etager)
+            {
+                return new StatusCodeResult(412);
+            }
+            string info;
+            using (StreamReader sr = new StreamReader(Request.Body))
+            {
+                info = sr.ReadToEnd();
+
+            }
+            client.PostAsync("http://localhost:9200/" + idx + "/_update_by_query?conflicts=proceed", new StringContent(info, Encoding.UTF8, "application/json"));
+            return new OkObjectResult(200);
+        }
 
         [HttpGet]
         [Route("validate")]
@@ -247,6 +269,7 @@ namespace AdventureAPI.Controllers
                 responseTxt = result.Result;
             }
             var obj = ElasticParser.FromJson(responseTxt);
+            //cache.Set(entryId, responseTxt);
                 //res[entryid]
                 return new JsonResult(obj.Source);
         }
@@ -327,21 +350,6 @@ namespace AdventureAPI.Controllers
             }
             return new NotFoundObjectResult("Cannot find entry");
         }
-
-        [HttpPut]
-        [Route("{idx?}")]
-        private ActionResult partialDelete(string idx)
-        {
-            var client = new HttpClient();
-            //dynamic body = new ExpandoObject();
-            //body.script.source = "ctx._source.remove('multiple')";
-            //body.script.lang = 
-            string body = "[{ 'script':{ 'source': 'ctx._source.remove('planCostShares')','lang': 'painless'},'query':{ 'term':{ 'planCostShares.objectId':'1234vxc2324sdf'}}]";
-            var content = new StringContent(body, Encoding.UTF8, "application/json");
-            client.PostAsync("http://localhost:9200/"+idx+ "_update_by_query?conflicts=proceed", content);
-            return new OkObjectResult(200);
-        }
-
 
         [HttpDelete]
         [Route("{id}/{entrytype}")]
